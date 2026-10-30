@@ -32,6 +32,14 @@ Se generan tres gráficos:
 - `grafico_pm25_autoridades.png`
 - `grafico_evolucion_pm.png`
 - `grafico_promedio_contaminante.png`
+  ## Procesamiento en tiempo real (Kafka y Spark Streaming)
+- `kafka_producer_aire.py`: productor que simula mediciones de contaminantes y las envía al topic `calidad_aire` de Kafka.
+- `spark_streaming_aire.py`: consumidor con Spark Streaming que calcula promedio, máximo y número de eventos por ventana de un minuto.
+
+```bash
+python3 kafka_producer_aire.py
+spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3 spark_streaming_aire.py
+```
 
 ## Autor
 María - Curso Big Data (202016911), UNAD
